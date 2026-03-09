@@ -1,0 +1,43 @@
+================================================================================
+LAB 3: VARIATIONAL AUTOENCODERS (VAE)
+================================================================================
+
+PROJECT OVERVIEW:
+This lab demonstrates the implementation of a Variational Autoencoder (VAE) on 
+the MNIST dataset. While standard autoencoders are used for compression, VAEs 
+are powerful generative models that learn a probabilistic representation of 
+the data.
+
+CORE COMPONENTS:
+1.  Encoder:
+    Instead of mapping an input image to a single fixed point in a latent space, 
+     the VAE encoder produces parameters of a distribution: a Mean (mu) and 
+    a Log-Variance (logvar).
+
+2.  Reparameterization Trick:
+    To allow gradient descent through random sampling, we sample epsilon from 
+    a standard normal distribution and transform it: z = mu + exp(0.5 * logvar) * epsilon.
+
+3.  Decoder:
+    The decoder takes the sampled latent vector 'z' and attempts to reconstruct 
+    the original 28x28 image.
+
+LOSS FUNCTIONS:
+- Reconstruction Loss: Measures how well the decoder recreated the input image 
+  (using Binary Cross Entropy).
+- KL-Divergence: A regularization term that pushes the learned distribution 
+  to be close to a standard normal distribution (Gaussian), ensuring the 
+  latent space is continuous and easy to sample from.
+
+VISUALIZATION:
+The project includes a comparison between the "Original" digits and their 
+"Reconstructed" versions, as well as a grid of entirely "Generated" digits 
+sampled from the latent space.
+
+TECHNOLOGIES USED:
+- PyTorch (Linear layers, ReLU, Sigmoid)
+- MNIST Dataset
+- Matplotlib (for visualization of latent reconstructions)
+
+FILE REFERENCE:
+- Untitled14.ipynb: Jupyter Notebook containing the step-by-step implementation.

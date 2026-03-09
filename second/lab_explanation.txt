@@ -1,0 +1,44 @@
+================================================================================
+LAB 2: GENERATIVE ADVERSARIAL NETWORKS (GAN)
+================================================================================
+
+PROJECT OVERVIEW:
+This lab implements a Generative Adversarial Network (GAN), a framework where 
+two neural networks contest with each other in a game. The goal is to generate 
+realistic handwritten digits (MNIST) or fashion items (FashionMNIST) from pure 
+random noise.
+
+THE ADVERSARIAL ARCHITECTURE:
+1.  The Generator (G):
+    A neural network that takes a vector of random noise (latent space) and 
+    transforms it into a 28x28 grayscale image. It learns to map noise to the 
+    data distribution of the training set.
+
+2.  The Discriminator (D):
+    A binary classifier that looks at an image and predicts whether it is "Real" 
+    (from the dataset) or "Fake" (produced by the Generator).
+
+3.  The Minimax Game:
+    Training involves a continuous loop:
+    - The Discriminator is trained to maximize the probability of assigning 
+      correct labels (Real vs. Fake).
+    - The Generator is trained to maximize the probability of the Discriminator 
+      making a mistake (labeling fakes as real).
+
+POST-TRAINING EVALUATION:
+Once the GAN is trained, the generated images are passed through a pre-trained 
+ResNet18 classifier. This allows us to quantify the "Label Distribution" of our 
+generated samples to see if the GAN has captured the diversity of the original 
+dataset.
+
+TECHNOLOGIES USED:
+- PyTorch (Linear layers, BCELoss)
+- Adam Optimizer (standard for GAN stability)
+- MNIST / FashionMNIST datasets
+- Matplotlib (for sampling generated images)
+- ResNet18 (as an external evaluator)
+
+FILE REFERENCE:
+- main.py: The complete GAN implementation including the user-interactive setup.
+- generated_samples/: Folder containing snapshots of generation progress.
+- final_generated_images/: The final 100 high-quality images produced.

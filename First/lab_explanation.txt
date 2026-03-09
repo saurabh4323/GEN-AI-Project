@@ -1,0 +1,42 @@
+================================================================================
+LAB 1: STABLE DIFFUSION DATASET GENERATION & RESNET CLASSIFICATION
+================================================================================
+
+PROJECT OVERVIEW:
+This experiment explores the intersection of Generative AI and Classical Computer 
+Vision. The core objective is to determine if a model trained exclusively on 
+artificially generated (synthetic) imagery can accurately classify real-world 
+categories.
+
+TECHNICAL WORKFLOW:
+1.  Synthetic Data Generation: 
+    Using the 'StableDiffusionPipeline' (v1.5), the project generates high-fidelity, 
+    photorealistic images of 40 different dog breeds. Each image is generated from 
+    a text prompt such as "a high quality photo of a [breed], ultra realistic, 
+    cinematic lighting, 4k".
+    
+2.  Dataset Structuring:
+    Images are automatically organized into folders named after the specific breed, 
+    forming a perfectly labeled training set for supervised learning.
+
+3.  Classification Architecture (ResNet18):
+    We utilize a ResNet18 model, which is a Deep Residual Network known for its 
+    use of "skip connections" to avoid the vanishing gradient problem in deep layers.
+    The model is initialized with ImageNet weights (Transfer Learning) and its 
+    final Fully Connected layer is modified to output 40 classes.
+
+4.  Training & Evaluation:
+    The model is trained using CrossEntropyLoss and the Adam optimizer. Evaluation 
+    is performed using a confusion matrix to visualize breed-specific accuracy.
+
+TECHNOLOGIES USED:
+- Stable Diffusion (runwayml/stable-diffusion-v1-5)
+- PyTorch & Torchvision
+- ResNet18 Architecture
+- Scikit-learn (Confusion Matrix)
+- Matplotlib & Seaborn (Data Visualization)
+
+FILE REFERENCE:
+- main.py: Contains the full pipeline from generation to training.
+- 40_dog_dataset/: The directory where synthetic images are stored.
+- resnet18_40_dog_breeds.pth: The saved model weights after training.

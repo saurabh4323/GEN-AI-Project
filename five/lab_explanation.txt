@@ -1,0 +1,38 @@
+================================================================================
+LAB 4: CONVOLUTIONAL AUTOENCODER (ENCODER-DECODER)
+================================================================================
+
+PROJECT OVERVIEW:
+This lab implements a Convolutional Encoder-Decoder architecture using the 
+CIFAR10 dataset. Unlike linear layers, Convolutional layers preserve the 
+spatial hierarchy of pixel data, making them significantly more efficient 
+for color image reconstruction.
+
+ARCHITECTURE DETAILS:
+1.  Encoder:
+    Uses 'Conv2d' layers with a stride of 2 to downsample the 32x32 RGB images. 
+    This process compresses the image into a high-dimensional feature map 
+    (bottleneck), capturing the most essential visual information.
+
+2.  Decoder:
+    Uses 'ConvTranspose2d' (Fractionally-strided convolutions) to upsample 
+    the feature maps back to the original 32x32 resolution.
+
+3.  Activation Functions:
+    - ReLU is used for internal layers to introduce non-linearity.
+    - Tanh is used for the final output layer to ensure pixel values fall 
+      within the normalized range of [-1, 1].
+
+TRAINING GOAL:
+The model is trained to minimize the L1 Loss (Mean Absolute Error) between the 
+input image and the output of the decoder. This architecture is fundamental 
+for tasks like image denoising, super-resolution, and semantic segmentation.
+
+TECHNOLOGIES USED:
+- PyTorch (nn.Conv2d, nn.ConvTranspose2d)
+- CIFAR10 Dataset (50,000 color training images)
+- Adam Optimizer
+- Matplotlib (showing original vs. reconstructed results)
+
+FILE REFERENCE:
+- main.py: Implementation of the Convolutional Autoencoder.

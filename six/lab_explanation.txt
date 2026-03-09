@@ -1,0 +1,41 @@
+================================================================================
+LAB 5: PIX2PIX - CONDITIONAL IMAGE-TO-IMAGE TRANSLATION
+================================================================================
+
+PROJECT OVERVIEW:
+This project implements the "Pix2Pix" architecture, a type of Conditional GAN 
+(cGAN). The specific task is to translate edge-map sketches into photorealistic 
+images of shoes using the 'edges2shoes' dataset.
+
+THE PIX2PIX ARCHITECTURE:
+1.  U-Net Generator:
+    The generator uses a U-Net structure, which consists of an encoder and a 
+    decoder with "skip-connections." These connections pass features directly 
+    from the encoder to the decoder, ensuring that fine-grained spatial 
+    details (like the thin lines of a shoe sketch) are not lost during 
+    the compression process.
+
+2.  PatchDiscriminator:
+    Instead of classifying the entire image as real or fake, the discriminator 
+    looks at 70x70 patches of the image. This encourages the generator to 
+    produce high-frequency textures and sharp details.
+
+3.  Loss Function Strategy:
+    - GAN Loss: Drives the model toward the distribution of real photos.
+    - L1 Loss: Penalty for pixel-wise differences between the generated shoe 
+      and the target shoe, ensuring the colors and shapes remain accurate 
+      to the specific input sketch.
+
+DATASET HANDLING:
+The project uses 'kagglehub' to fetch the large edges2shoes dataset. Each 
+training image is a "stitched" pair (Edges on the left, Target on the right), 
+which the code automatically splits and transforms for training.
+
+TECHNOLOGIES USED:
+- KaggleHub API
+- PyTorch (nn.BatchNorm2d, nn.LeakyReLU, nn.ConvTranspose2d)
+- PIL (Python Imaging Library) for complex dataset pre-processing.
+- Matplotlib for Triple-Visualization (Input / Target / Generated).
+
+FILE REFERENCE:
+- main.py: Full Pix2Pix implementation from dataset download to generation.
