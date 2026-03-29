@@ -1,0 +1,22 @@
+================================================================================
+LAB 7: NEURAL STYLE TRANSFER (NST) - ARTISTIC IMAGE GENERATION
+================================================================================
+
+PROJECT OVERVIEW & TITLE
+Full Title: Implementation of Neural Style Transfer using Convolutional Neural Networks.
+
+DESCRIPTION IN BRIEF
+This project focuses on the implementation of Neural Style Transfer (NST), an advanced deep learning technique used to blend the visual content of one image with the artistic style of another. 
+
+Based on the generated output, the model processes two inputs:
+1. A "Content" Image (The Taj Mahal).
+2. A "Style" Reference Image (featuring impressionistic, swirling patterns akin to Vincent van Gogh's "The Starry Night").
+
+Using a pre-trained Convolutional Neural Network (typically VGG-19), the code extracts high-level structural features from the content image and low-level textural/color features from the style image. An optimization algorithm then iteratively updates a newly generated image to minimize two distinct loss functions:
+- Content Loss: Ensures the architectural shape and structural integrity of the Taj Mahal are preserved.
+- Style Loss: Ensures the distinct brushstrokes, color palettes, and swirling textures of the style reference are uniformly applied to the generated output (calculated using Gram matrices). 
+
+The result is a highly detailed composite image that retains the recognizable physical presence of the Taj Mahal but renders it entirely in the chosen artistic style.
+
+CONCLUSION
+In conclusion, this project effectively demonstrates how deep learning can be explicitly utilized for computational creativity and advanced image manipulation. By proving that a Neural Network can mathematically distinguish between the "content" (what the image is) and the "style" (how the image is drawn), the model bridges the gap between structured machine learning and fluid artistic expression. The final output validates the power of feature extraction within deep layers of CNNs and illustrates how AI can be an incredible tool for dynamic, stylized visual art generation.

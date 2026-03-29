@@ -1,5 +1,5 @@
 ================================================================================
-LAB 5: PIX2PIX - CONDITIONAL IMAGE-TO-IMAGE TRANSLATION
+LAB 6: PIX2PIX - CONDITIONAL IMAGE-TO-IMAGE TRANSLATION
 ================================================================================
 
 PROJECT OVERVIEW:

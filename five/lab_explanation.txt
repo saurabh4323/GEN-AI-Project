@@ -1,5 +1,5 @@
 ================================================================================
-LAB 4: CONVOLUTIONAL AUTOENCODER (ENCODER-DECODER)
+LAB 5: CONVOLUTIONAL AUTOENCODER (ENCODER-DECODER)
 ================================================================================
 
 PROJECT OVERVIEW:
